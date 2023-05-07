@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 
 def parse_args():
     if len(sys.argv) < 2 or len(sys.argv) > 5:
-        print("Usage: ortho_tiling.py <filename> [--tile-size <tile_width> <tile_height>]")
+        print("Usage: ortho_tiling.py <filename> [--tile-size <tile_height> <tile_width>]")
         sys.exit(1)
 
     filename = sys.argv[1]
@@ -18,11 +18,11 @@ def parse_args():
 
     if len(sys.argv) == 5:
         if sys.argv[2] != "--tile-size":
-            print("Usage: ortho_tiling.py <filename> [--tilesize <tile_width> <tile_height>]")
+            print("Usage: ortho_tiling.py <filename> [--tilesize <tile_height> <tile_width>]")
             sys.exit(1)
         try:
-            tile_width = int(sys.argv[3])
-            tile_height = int(sys.argv[4])
+            tile_height = int(sys.argv[3])
+            tile_width = int(sys.argv[4])
         except ValueError:
             print("Tile width and height must be integers")
             sys.exit(1)
@@ -41,8 +41,8 @@ tile_width = tile_width or 4056
 tile_height = tile_height or 3040
 
 # Set the overlap between tiles, must be at least double the size of whatever you're trying to identify
-overlap_x = 500
-overlap_y = 500
+overlap_x = 200
+overlap_y = 200
 
 # Define the stride of the sliding window
 stride_x = tile_width - overlap_x
