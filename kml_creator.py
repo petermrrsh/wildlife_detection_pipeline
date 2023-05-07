@@ -30,18 +30,18 @@ print(f"  Name:         '{display_name}'")
 print(f"  Input (json): '{json_file}'")
 print(f"  Output (kml): '{output_filename}'")
 
+# Read in labels from the json file
+try:
+    coords = read_labels_from_json(json_file)
+except:
+    print(f"Error: the json file '{json_file}' could not be read.")
+    sys.exit(1)
 
 # Clear the output file if there is one and then open it in append mode
 if os.path.exists(output_filename):
     with open(output_filename, "w") as file:
         file.truncate(0)
 output_file = open(output_filename, "a")
-
-try:
-    coords = read_labels_from_json(json_file)
-except:
-    print(f"Error: the json file '{json_file}' could not be read.")
-    sys.exit(1)
 
 # generate kml for the header and bounding box style
 print(
