@@ -4,6 +4,7 @@ import os
 import shutil
 import sys
 import cv2
+from matplotlib import pyplot as plt
 
 def parse_args():
     if len(sys.argv) < 2 or len(sys.argv) > 5:
@@ -122,5 +123,7 @@ for x in range(0, width, stride_x):
 out_image_path = f"{out_dir}/display_img.tif"
 print(f"\nSaving display img at '{out_image_path}'")
 cv2.imwrite(out_image_path, display_img)
+
+plt.imshow(display_img)
 print("Done")
 

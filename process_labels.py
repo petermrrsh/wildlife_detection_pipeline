@@ -6,6 +6,7 @@ import json
 import argparse
 import glob
 import sys
+from matplotlib import pyplot as plt
 
 def parse_args():
     parser = argparse.ArgumentParser(prog="process_labels.py", description="Parse arguments for label processor")
@@ -279,4 +280,6 @@ write_labels_to_json(gps_labels, gps_labels_json)
 
 # save the labeled .tif for viewing purposes
 cv2.imwrite(save_path, ortho_image)
+plt.imshow(ortho_image)
+
 print(f"The image showing plotted labels is saved in: '{save_path}'")
