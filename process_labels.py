@@ -31,7 +31,7 @@ def find_highest_numbered_file(directory, prefix):
     
     for filename in os.listdir(directory):
         if filename == prefix:
-            number = 0
+            max_file = filename
             continue
         if filename.startswith(prefix) and filename[len(prefix):].isdigit():
             number = int(filename[len(prefix):])
